@@ -20,7 +20,7 @@ class WarnaKu
 		
 		$this->SetArrayWarna();
 		$this->CariWarna($warna);
-		$this->Warnaku;
+		$this->WarnaKu();
 	}
 	private function SetArrayWarna(){
 		$this->warna = [30 => 'hitam','merah','hijau',
@@ -39,17 +39,16 @@ class WarnaKu
 			$warna .= $BUI.';' ;	
 		}
 		if($this->TextColor != ''){
-			$warna .= $this->TextColor.';' ;	
+			$warna .= $this->TextColor.'m' ;	
 		}
 
 		$this->warna = $warna;
 	}
 	function __tostring(){
-		return "\033[".$this->warna.$this->kata." \033[0m \n";
+		return "\e[".$this->warna.$this->kata."\e[0m \n";
 	}
 	
 } 
-$WarnaKu	= new WarnaKu('Sate Kambing','merah');
-echo $WarnaKu;
-
+$WarnaKu	= new WarnaKu('Sate Kambing','hijau');
+echo ($WarnaKu);
 ?>
